@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 public class Saldo {
     public JPanel saldo;
     private JButton MENUButton;
+    private JTextField saldotextField1;
     public Transaccion transaccion;
 
     public Saldo() {
@@ -16,7 +17,6 @@ public class Saldo {
                 JFrame frames = new JFrame("QUE TRANSACCION VA A REALIZAR");
                 frames.setContentPane(new Transaccion().transaccion);
                 frames.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frames.setSize(300, 300);
                 frames.pack();
                 frame.setLocationRelativeTo(null);
                 frames.setVisible(true);
@@ -24,3 +24,4 @@ public class Saldo {
         });
     }
 }
+

@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class Transaccion {
     public JPanel transaccion;
     private JRadioButton VISUALIZARSUSALDORadioButton;
@@ -10,7 +11,8 @@ public class Transaccion {
     private JRadioButton SALIRRadioButton;
     private ButtonGroup buttonGroup;
 
-        public Transaccion() {buttonGroup = new ButtonGroup();
+        public Transaccion() {
+            buttonGroup = new ButtonGroup();
             buttonGroup.add(VISUALIZARSUSALDORadioButton);
             buttonGroup.add(RETIRORadioButton);
             buttonGroup.add(DEPOSITORadioButton);
@@ -25,12 +27,30 @@ public class Transaccion {
         DEPOSITORadioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(DEPOSITORadioButton);
+                frame.dispose();
+
+                JFrame frames = new JFrame("DEPOSITO");
+                frames.setContentPane(new Deposito().depo);
+                frames.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frames.pack();
+                frame.setLocationRelativeTo(null);
+                frames.setVisible(true);
 
             }
         });
         RETIRORadioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(VISUALIZARSUSALDORadioButton);
+                frame.dispose();
+
+                JFrame frames = new JFrame("RETIRO");
+                frames.setContentPane(new Retiro().retir);
+                frames.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frames.pack();
+                frame.setLocationRelativeTo(null);
+                frames.setVisible(true);
 
             }
         });
@@ -40,10 +60,9 @@ public class Transaccion {
                 JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(VISUALIZARSUSALDORadioButton);
                 frame.dispose();
 
-                JFrame frames = new JFrame("TU SALDO ES");
+                JFrame frames = new JFrame("SALDO");
                 frames.setContentPane(new Saldo().saldo);
                 frames.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frames.setSize(300, 300);
                 frames.pack();
                 frame.setLocationRelativeTo(null);
                 frames.setVisible(true);
