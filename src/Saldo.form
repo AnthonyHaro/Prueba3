@@ -78,7 +78,7 @@
         </constraints>
         <properties>
           <background color="-16777216"/>
-          <disabledTextColor color="-10855069"/>
+          <disabledTextColor color="-594449"/>
           <editable value="false"/>
           <foreground color="-394241"/>
           <text value=""/>

@@ -17,6 +17,7 @@ public class Retiro {
     private JButton a0But;
     private JButton ingresarButton;
     private JButton MENUButton;
+    private JButton eli;
 
     public Retiro() {
         a1Button.addActionListener(new ActionListener() {
@@ -97,6 +98,16 @@ public class Retiro {
                 frames.pack();
                 frame.setLocationRelativeTo(null);
                 frames.setVisible(true);
+            }
+        });
+        eli.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String clave= retitext.getText();
+                retitext.setText("");
+                for (int i=1;i<clave.length();i++){
+                    retitext.setText(retitext.getText()+clave.charAt(i-1));
+                }
             }
         });
     }

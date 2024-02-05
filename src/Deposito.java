@@ -17,7 +17,8 @@ public class Deposito {
     private JButton ingresarButton;
     public JPanel depo;
     private JButton MENUButton;
-
+    private JButton borrar;
+    private Saldo saldo;
     public Deposito() {
         a1Button.addActionListener(new ActionListener() {
             @Override
@@ -79,13 +80,6 @@ public class Deposito {
                 depotext.setText(depotext.getText()+"0");
             }
         });
-        ingresarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                depotext.setText(depotext.getText());
-                JOptionPane.showMessageDialog(null, "Su deposto fue agregado correctamente", "Deposito correcto", JOptionPane.INFORMATION_MESSAGE);
-            }
-        });
 
         MENUButton.addActionListener(new ActionListener() {
             @Override
@@ -98,6 +92,35 @@ public class Deposito {
                 frames.pack();
                 frame.setLocationRelativeTo(null);
                 frames.setVisible(true);
+            }
+        });
+        borrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String clave= depotext.getText();
+                depotext.setText("");
+                for (int i=1;i<clave.length();i++){
+                    depotext.setText(depotext.getText()+clave.charAt(i-1));
+                }
+            }
+        });
+        ingresarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JTextField texto = new JTextField();
+                JTextField tex = new JTextField();
+                Saldo saldoActual= new Saldo();
+                String depos = depotext.getText();
+                texto.setText("0");
+                if (depos.equals("") || depos.equals("0")){
+                    JOptionPane.showMessageDialog(null, "Ingrese un valor", "Error", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else{
+                    texto.setText(Integer.toString(Integer.parseInt(texto.getText()))+Integer.parseInt(depotext.getText()));
+                    saldoActual.setSaldotextField1(texto);
+                    depotext.setText("");
+                    JOptionPane.showMessageDialog(null, "Su deposito fue agregado correctamente", "Deposito correcto", JOptionPane.INFORMATION_MESSAGE);
+                }
             }
         });
     }

@@ -23,5 +23,13 @@ public class Saldo {
             }
         });
     }
+
+    public JTextField getSaldotextField1() {
+        return saldotextField1;
+    }
+
+    public void setSaldotextField1(JTextField saldotextField1) {
+        this.saldotextField1 = saldotextField1;
+    }
 }
 
