@@ -83,21 +83,26 @@ public class Retiro {
         ingresarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String reti = retitext.getText();
-                if (reti.isEmpty() || reti.equals("0")){
-                    JOptionPane.showMessageDialog(null, "Ingrese un valor", "Error", JOptionPane.INFORMATION_MESSAGE);
-                }
-                else{
-                    if (Saldo.saldoTotal<Integer.parseInt(reti)){
-                        JOptionPane.showMessageDialog(null, "No tiene suficiente saldo", "Error", JOptionPane.INFORMATION_MESSAGE);
-                        retitext.setText("");
-                    }else{
-                        Saldo.saldoTotal=Saldo.saldoTotal-Integer.parseInt(reti);
-                        retitext.setText("");
-                        JOptionPane.showMessageDialog(null, "Su retiro fue exitoso", "Retiro exitoso", JOptionPane.INFORMATION_MESSAGE);
+                try {
+                    String reti = retitext.getText();
+                    int i = 0;
+                    while (i < reti.length() && reti.charAt(i) == '0') {
+                        i++;
+                    }if (reti.isEmpty() || i == reti.length()) {
+                        JOptionPane.showMessageDialog(null, "Ingrese un valor", "Error", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        if (Saldo.saldoTotal < Integer.parseInt(reti)) {
+                            JOptionPane.showMessageDialog(null, "No tiene suficiente saldo", "Error", JOptionPane.INFORMATION_MESSAGE);
+                            retitext.setText("");
+                        } else {
+                            Saldo.saldoTotal = Saldo.saldoTotal - Integer.parseInt(reti);
+                            retitext.setText("");
+                            JOptionPane.showMessageDialog(null, "Su retiro fue exitoso", "Retiro exitoso", JOptionPane.INFORMATION_MESSAGE);
+                        }
                     }
+                }catch (NumberFormatException ex){
+                    JOptionPane.showMessageDialog(null, "Error al convertir el valor ingresado a número", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-
             }
         });
         MENUButton.addActionListener(new ActionListener() {

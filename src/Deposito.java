@@ -107,15 +107,20 @@ public class Deposito {
         ingresarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                String depos = depotext.getText();
-                if (depos.isEmpty() || depos.equals("0")){
-                    JOptionPane.showMessageDialog(null, "Ingrese un valor", "Error", JOptionPane.INFORMATION_MESSAGE);
-                }
-                else{
-                    Saldo.saldoTotal=Saldo.saldoTotal+Integer.parseInt(depos);
-                    depotext.setText("");
-                    JOptionPane.showMessageDialog(null, "Su deposito fue agregado correctamente", "Deposito correcto", JOptionPane.INFORMATION_MESSAGE);
+                try {
+                    String depos = depotext.getText();
+                    int i = 0;
+                    while (i < depos.length() && depos.charAt(i) == '0') {
+                        i++;
+                    }if (depos.isEmpty() || i == depos.length()) {
+                        JOptionPane.showMessageDialog(null, "Ingrese un valor", "Error", JOptionPane.INFORMATION_MESSAGE);
+                    }else {
+                        Saldo.saldoTotal = Saldo.saldoTotal + Integer.parseInt(depos);
+                        depotext.setText("");
+                        JOptionPane.showMessageDialog(null, "Su deposito fue agregado correctamente", "Deposito correcto", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }catch (NumberFormatException ex){
+                    JOptionPane.showMessageDialog(null, "Error al convertir el valor ingresado a número", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });

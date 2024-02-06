@@ -82,10 +82,14 @@ public class Bienvenida {
         button11.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String clave= contra.getText();
-                contra.setText("");
-                for (int i=1;i<clave.length();i++){
-                    contra.setText(contra.getText()+clave.charAt(i-1));
+                try {
+                    String clave= contra.getText();
+                    contra.setText("");
+                    for (int i=1;i<clave.length();i++){
+                        contra.setText(contra.getText()+clave.charAt(i-1));
+                    }
+                }catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
