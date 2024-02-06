@@ -17,6 +17,7 @@ public class Bienvenida {
     private JButton a0Button;
     private JButton button11;
     private JButton ingresarButton;
+    private JButton SALIRButton;
 
     public Bienvenida() {
         a1Button.addActionListener(new ActionListener() {
@@ -111,6 +112,13 @@ public class Bienvenida {
                     contra.setText("");
                     JOptionPane.showMessageDialog(null, "La contraseña ingresada no es correcta", "Error", JOptionPane.INFORMATION_MESSAGE);
                 }
+            }
+        });
+        SALIRButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "¡Muchas gracias por su visita!", "Gracias por Preferirnos", JOptionPane.INFORMATION_MESSAGE);
+                System.exit(0);
             }
         });
     }
