@@ -13,7 +13,7 @@ La pantalla de bienvenida tendra una validacion de contraseña la cual si se ing
 
 ![image](https://github.com/AnthonyHaro/Prueba3/assets/150816518/62cb6d44-4797-4d8d-bfbf-627e94a36f62)
 
-En las pantallas de retiro y deposito estan validadas para el usuario no pueda retirar o depositar valores " " y ceros ya sea de cualquier manera, tambien se incluyo una funcion while para que pueda leer numero que empiezen por ceros y sacar el entero
+Las pantallas de retiro y deposito estan validadas para que el usuario no pueda retirar o depositar valores " " y ceros ya sea de cualquier manera, tambien se incluyo una funcion while para que pueda leer numero que empiezen por ceros y sacar el entero
 
 ![image](https://github.com/AnthonyHaro/Prueba3/assets/150816518/bc461049-052d-45d5-9945-9a5318fdf94f)
 ![image](https://github.com/AnthonyHaro/Prueba3/assets/150816518/6cc75157-9536-4145-970e-28616efd9ada)
